@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Computer Science Portfolio</title>
+    <!-- Load Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font and smooth scrolling for a better user experience */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* True Black for max contrast */
+            color: #E5E7EB; /* Light Gray text */
+            scroll-behavior: smooth;
+        }
+        /* Custom vibrant multi-color gradient for a high-quality look */
+        .gradient-text {
+            /* Vibrant multi-color gradient: Purple -> Pink -> green */
+            background-image: linear-gradient(45deg, #A855F7, #EC4899, #0bf561); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Overriding the default gray-900 for a true dark mode feel */
+        .bg-gray-900 {
+            background-color: #0F0F0F;
+        }
+        .bg-gray-800 {
+            background-color: #29bd19; /* User's custom green background */
+        }
+        
+        /* --- NEW: PROJECT EXPANSION STYLES --- */
+        .project-card {
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            position: relative; 
+            z-index: 10; /* Base Z-index */
+        }
+        .expanded-project {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 50; /* Above everything else */
+            overflow-y: auto;
+            padding: 2rem;
+            background-color: #000000; /* True black background for full focus */
+            /* Strong pink highlight shadow */
+            box-shadow: 0 0 50px rgba(236, 72, 153, 0.8); 
+            
+            /* Remove transform and delay from scroll reveal when expanded */
+            opacity: 1 !important; 
+            transform: none !important;
+        }
+        /* New content wrapper to prevent elements from stretching too wide in full screen */
+        .project-content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding-top: 2rem;
+        }
+        /* ------------------------------------- */
+
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl border-b border-purple-700">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">
+                My CS Portfolio
+            </h1>
+            <div class="space-x-4">
+                <a href="#about" class="text-gray-300 hover:text-green-400 transition duration-300">About</a>
+                <!-- Link to the Projects section -->
+                <a href="#projects" class="text-gray-300 hover:text-pink-400 transition duration-300">Projects</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Sections -->
+    <main class="max-w-7xl mx-auto">
+        
+        <!-- Section 1: Hero and Introduction -->
+        <!-- The hero section doesn't scroll, so we leave it static -->
+        <section id="hero" class="py-24 px-4 sm:px-6 lg:px-8 text-center border-b border-gray-800">
+            <h2 class="5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Showcasing My Work in <span class="gradient-text">Computer Science</span>
+            </h2>
+            <!-- DESCRIPTION HIGHLIGHTING MIT APP INVENTOR -->
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
+                Featured here is my **Baseball-Themed Clicker Game**, an interactive mobile project I built using **MIT App Inventor** for my Introduction to Computer Science class. This app showcases fundamental programming concepts and my ability to create engaging, real-world applications on a visual platform.
+            </p>
+            <!-- BUTTON LINKING DIRECTLY TO THE APP INVENTOR PROJECT (Now Pink) -->
+            <a href="https://ai2.appinventor.mit.edu/#5809473993113600" target="_blank"
+                class="inline-block bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-pink-700 transition duration-300 transform hover:scale-105">
+                Launch Featured App
+            </a>
+        </section>
+
+        <!-- Section 2: Core Features (Skills) - Scroll Reveal Applied -->
+        <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
+            <h3 class="text-4xl font-bold text-center mb-12 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 ease-out">My Skills and Blueprints</h3>
+            
+            <!-- Skills Grid - Scroll Reveal Applied (Multiple Colors) -->
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Feature 1: HTML & Structure (Blue Accent) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-2xl space-y-4 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 ease-out">
+                    <div class="text-blue-400 text-3xl font-bold">01. HTML & Structure</div>
+                    <p class="text-gray-300">
+                        HTML is the skeleton of your project. It defines the hierarchy, from the main title to the smallest text elements. Good structure is essential for high-quality, accessible websites.
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        I use tags like &lt;section&gt;, &lt;div&gt;, and &lt;header&gt; to keep everything organized and easy to read.
+                    </p>
+                </div>
+                <!-- Feature 2: CSS & Design (Green Accent) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-2xl space-y-4 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 delay-100 ease-out">
+                    <div class="text-green-400 text-3xl font-bold">02. CSS & Design</div>
+                    <p class="text-gray-300">
+                        CSS (like Tailwind) provides the style and color. This is where the black background and vibrant accents come from, making the design modern and visually striking.
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Responsive design ensures projects look great on mobile phones, tablets, and desktop screens—crucial for a modern web experience.
+                    </p>
+                </div>
+                <!-- Feature 3: App Development (Purple Accent) -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-2xl space-y-4 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 delay-200 ease-out">
+                    <div class="text-purple-400 text-3xl font-bold">03. App Development</div>
+                    <p class="text-gray-300">
+                        This involves adding actions and logic using visual tools like **MIT App Inventor**. Block-based programming allows me to build functions, like buttons that respond to clicks and manage the game state of my apps.
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Focusing on smooth behavior and interaction design makes the app feel polished and professional for any user.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Extra paragraphs - Scroll Reveal Applied (No JavaScript mentions here) -->
+            <div class="mt-12 space-y-6 text-gray-400 max-w-4xl mx-auto js-scroll-reveal opacity-0 translate-y-10 transition duration-700 ease-out">
+                <p>
+                    High-quality web design isn't just about looking good; it's about making the experience intuitive and fast for the user. I focus on clean code and performance so that my creations load instantly and work flawlessly, no matter the device.
+                </p>
+                <p>
+                    To truly master web development, practicing consistently and breaking down large problems into smaller, manageable chunks is key. Every element on this page—from the navigation bar to the section dividers—is a small, self-contained HTML component styled by Tailwind CSS.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 3: Projects Grid - Scroll Reveal Applied (4 Multi-Color Cards) -->
+        <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
+             <h3 class="text-4xl font-bold text-center mb-12 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 ease-out">My Project Pipeline</h3>
+             <div class="max-w-7xl mx-auto space-y-12">
+                
+                <!-- Project Grid Container -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Project Card 1: Clicker Game (Pink/Blue Accent) -->
+                    <!-- ADDED: project-card class and onclick handler -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-300 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 ease-out project-card" onclick="expandProject(this)">
+                        <div class="project-content-wrapper">
+                            <!-- Image Placeholder (Pink/Purple) -->
+                            <div class="h-40 bg-pink-900/50 flex items-center justify-center text-gray-300 text-lg font-semibold border-b border-pink-600">
+                                Clicker Game Screenshot Space
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <h4 class="text-xl font-bold text-pink-400">Baseball Clicker Game</h4>
+                                <p class="text-sm text-gray-400">
+                                    **Platform:** MIT App Inventor
+                                </p>
+                                <p class="text-gray-300 text-sm">
+                                    This project demonstrates event-driven programming, game loop logic, and visual UI design principles using block-based coding. In this game a baseball is trying to get across the field for a home run and the plater must click on it to get points. Certain things the plater does may lose them points and it is all about letting in the least amounts of runs possible.
+                                </p>
+                                <!-- Expanded Content Area -->
+                                <div class="expanded-detail hidden pt-4 border-t border-gray-700 mt-4 text-gray-400 space-y-3">
+                                    <h5 class="text-lg font-semibold text-pink-300">Detailed Project Breakdown:</h5>
+                                    <p>This full-screen view is perfect for detailing the logic: explaining how the score is calculated, what events trigger point deductions, and the overall design goal of managing risk in the game. **Click the card again to close.**</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: Tic-Tac-Toe Game (Teal Accent) -->
+                    <!-- ADDED: project-card class and onclick handler -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-300 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 delay-100 ease-out project-card" onclick="expandProject(this)">
+                        <div class="project-content-wrapper">
+                            <!-- Image Placeholder (Teal) -->
+                            <div class="h-40 bg-teal-900/50 flex items-center justify-center text-gray-400 text-lg font-semibold border-b border-teal-600">
+                                Tic-Tac-Toe Game Image Space
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <h4 class="text-xl font-bold text-teal-400">Tic-Tac-Toe Game</h4>
+                                <p class="text-sm text-gray-400">
+                                    **Platform:** MIT App Inventor
+                                </p>
+                                <p class="text-gray-300 text-sm">
+                                    This is a tic-tac-toe gaem that allows two players to compete against eachother to try and win. Instead of X and O it is E and S for myself and my brother since they are our first two initials. It has a unique color scheme being simplie yet cool. it also has a cool font that makes it more interesting.
+                                </p>
+                                <!-- Expanded Content Area -->
+                                <div class="expanded-detail hidden pt-4 border-t border-gray-700 mt-4 text-gray-400 space-y-3">
+                                    <h5 class="text-lg font-semibold text-teal-300">Detailed Project Breakdown:</h5>
+                                    <p>Use this space to explain the core game state logic (who's turn is it?), how you checked for the 3-in-a-row winning conditions, and the sentimental reason behind using the E and S initials! **Click the card again to close.**</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Placeholder for Future Project 2 (Blue Accent) -->
+                    <!-- ADDED: project-card class and onclick handler -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-300 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 delay-200 ease-out project-card" onclick="expandProject(this)">
+                        <div class="project-content-wrapper">
+                            <!-- Image Placeholder (Yellow) -->
+                            <div class="h-40 bg-blue-500/50 flex items-center justify-center text-gray-400 text-lg font-semibold border-b border-yellow-600">
+                                Future Project 2 Image Space
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <h4 class="text-xl font-bold text-blue-400">Project Title Placeholder</h4>
+                                <p class="text-sm text-gray-400">
+                                    **Platform:** [Tool/Language]
+                                </p>
+                                <p class="text-gray-300 text-sm">
+                                    [Detailed description of project goals and scope will go here.]
+                                </p>
+                                <!-- Expanded Content Area -->
+                                <div class="expanded-detail hidden pt-4 border-t border-gray-700 mt-4 text-gray-400 space-y-3">
+                                    <h5 class="text-lg font-semibold text-blue-300">Detailed Project Breakdown:</h5>
+                                    <p>This is a placeholder for a detailed, expanded view of your next project. When you build it, you can replace this text with specific technical details. **Click the card again to close.**</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4: Placeholder for Future Project 3 (Indigo Accent) -->
+                    <!-- ADDED: project-card class and onclick handler -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-300 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 delay-300 ease-out project-card" onclick="expandProject(this)">
+                        <div class="project-content-wrapper">
+                            <!-- Image Placeholder (Indigo) -->
+                            <div class="h-40 bg-indigo-900/50 flex items-center justify-center text-gray-400 text-lg font-semibold border-b border-indigo-600">
+                                Future Project 3 Image Space
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <h4 class="text-xl font-bold text-indigo-400">Project Title Placeholder</h4>
+                                <p class="text-sm text-gray-400">
+                                    **Platform:** [Tool/Language]
+                                </p>
+                                <p class="text-gray-300 text-sm">
+                                    [Detailed description of project goals and scope will go here.]
+                                </p>
+                                <!-- Expanded Content Area -->
+                                <div class="expanded-detail hidden pt-4 border-t border-gray-700 mt-4 text-gray-400 space-y-3">
+                                    <h5 class="text-lg font-semibold text-indigo-300">Detailed Project Breakdown:</h5>
+                                    <p>This is a placeholder for a detailed, expanded view of your next project. When you build it, you can replace this text with specific technical details. **Click the card again to close.**</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                 
+             </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer - Scroll Reveal Applied -->
+    <!-- Removed '#contact' ID since there's no link to it in the navigation -->
+    <footer class="bg-gray-800 mt-12 py-8 text-center border-t border-purple-700 js-scroll-reveal opacity-0 translate-y-10 transition duration-700 ease-out">
+        <p class="text-gray-400">
+            &copy; 2025 My Computer Science Portfolio. Built for speed and visual impact.
+        </p>
+    </footer>
+
+    <!-- JavaScript for Firebase (Mandatory Boilerplate) and Scroll Animation -->
+    <script type="module">
+        // --- Mandatory Firebase Setup ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+
+        const initFirebase = async () => {
+            if (Object.keys(firebaseConfig).length === 0) {
+                console.warn("Firebase config not available. Skipping Firebase initialization.");
+                return;
+            }
+            try {
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                // Authentication logic (mandatory)
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                console.log("Firebase initialized and user signed in.");
+            } catch (error) {
+                console.error("Firebase initialization failed:", error);
+            }
+        };
+        initFirebase();
+
+        // --- NEW: PROJECT EXPANSION FUNCTION ---
+        window.expandProject = function(element) {
+            // Toggles the special full-screen class
+            element.classList.toggle('expanded-project');
+            
+            const isExpanded = element.classList.contains('expanded-project');
+
+            // Find the detailed content inside the card
+            const expandedDetail = element.querySelector('.expanded-detail');
+
+            if (isExpanded) {
+                // Prevent background scrolling when expanded
+                document.body.style.overflow = 'hidden';
+                // Show detailed content
+                if (expandedDetail) expandedDetail.classList.remove('hidden');
+                // Move the expanded card to the top layer
+                element.style.zIndex = '50';
+            } else {
+                // Restore scrolling when collapsed
+                document.body.style.overflow = '';
+                // Hide detailed content
+                if (expandedDetail) expandedDetail.classList.add('hidden');
+                // Reset z-index
+                element.style.zIndex = '10';
+            }
+        };
+        // -------------------------------------
+
+
+        // --- Scroll Reveal Animation Logic (Kept for smooth scrolling effect) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsToAnimate = document.querySelectorAll('.js-scroll-reveal');
+
+            if (elementsToAnimate.length === 0) return;
+
+            // Options: Trigger when 10% of the element is visible
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Element is in view, remove the initial state (hidden/down) classes
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                        
+                        // Stop observing once the animation has been triggered
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // Start observing all elements
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
